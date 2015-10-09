@@ -1,22 +1,43 @@
 grammar Expr;
 
-prog:   ID(fsuj | nfsuj);
+prog:   ID(fsub | nfsub);
 
-fsuj:   NEWLINE
-        (
-        ID ID (VIRGULE ID)* PTVIRGULE NEWLINE
-        )*
-        POINT
-        ;
+fsub:
+	factor
+	POINT
+	;
 
-nfsuj:  (
-         ID ID (VIRGULE ID)* POINT
-        )*
-        ;
+factor:
+	ID
+	ID
+	fpred
+	PTVIRGULE
+	;
+
+fpred:
+	VIRGULE
+	ID
+	fpred
+	|
+	;
+
+
+
+
+nfsub: nfsubb nfsub | ;
+nfsubb: ID ID id POINT;
+id:
+	VIRGULE
+	ID 
+	id 
+	|;
 
 VIRGULE:    ',';
 PTVIRGULE: ';';
 POINT:  '.';
-ID  :   '<'('a'..'z'|'A'..'Z')+'>' ;
-NEWLINE:'\r'? '\n' ;
+ID  :   ('a'..'z'|'A'..'Z')+ ;
+NEWLINE:('\r'? '\n')+ {skip();} ;
 WS  :   (' '|'\t')+ {skip();} ;
+
+prog:	( ID ((IoD (VIR ID)* PTVG)* | ID (VIR ID)* PT) )*
+
