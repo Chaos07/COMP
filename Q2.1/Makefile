@@ -7,7 +7,7 @@
 # arguments.
 # example : make run ARGS=tests/test1.ttl
 
-ANTLR_JAR=~/COMP/antlr/antlr-3.5.jar
+ANTLR_JAR=
 # If "G" is not specified, it defaults to "TP1".
 G=Expr
 
