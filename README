@@ -1,15 +1,14 @@
-Instructions:
-    Don't freak out!
-    There are two main directories here: Q2.1 and Q2.2.
-    Each directory name represent a question in the homework "TP1" and therefore
-    contains a working solution to that specific question.
-    Additionally, each directory also contains a makefile, the variable
-    ANTLR_JAR in each makefile should be modified to point to the full path of
-    the antlr jar file.
+There are 3 directories: 'Q2-1', 'Q2-2' and 'tests'
+Each directory contains the solution to a question of the first COMP
+assignment. Directory names should be self-explanatory.
 
-    to build the parsers and lexers just cd to Q2.1 or Q2.2 and issue the
-    command make.
-    to run the program that tests the parser and the lexer generated issue the
-    command : make run < testfile.
+Each directory contains a Makefile. Note that ANTLR_JAR should be set to point
+to the correct antlr jar file. This can be done by giving make the argument
+ANTLR_JAR=value, where value is the path to the antlr archive as in `make
+ANTLR_JAR=/path/to/antlr.jar'
 
-    you can find two test files in the tests directory.
+In summary, to build the lexer and parser, just issue 'make' with the correct
+path to antlr in the directories provided to that effect.
+To further test the lexer and parser, issue 'make run < testfile' from within
+the correct directories, where testfile is a test file you provide. Note that 2
+test files are provided within this tarball in the 'tests' directory.
